@@ -430,7 +430,7 @@ button {
   height: 220px;
   border-radius: 40px;
   background:
-    url("profile.jpg") center/cover no-repeat,
+    url("profile.jpg.jpeg") center/cover no-repeat,
     radial-gradient(circle at 35% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.05) 34%),
     linear-gradient(135deg, rgba(139, 184, 255, 0.92), rgba(118, 242, 208, 0.86));
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
@@ -1125,8 +1125,8 @@ button {
   }
 
   .profile-avatar {
-    width: 160px;
-    height: 160px;
+    width: 170px;
+    height: 170px;
     border-radius: 32px;
   }
 
