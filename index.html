@@ -240,8 +240,8 @@
 
     .hero-orb::after {
       inset: 80px;
-      background: var(--accent);
-      box-shadow: 0 0 90px rgba(217,255,84,.4);
+      background: transparent;
+      box-shadow: none;
       border: none;
     }
 
@@ -341,17 +341,17 @@
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
+      gap: 20px;
       margin-top: 14px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .skill-category {
       min-width: 0;
-      background: rgba(255,255,255,.01);
+      padding: 22px 20px;
       border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 22px 20px 18px;
+      background: rgba(255,255,255,.01);
       box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
       transition: .3s ease;
     }
@@ -363,96 +363,35 @@
     }
 
     .category-header {
-      font-family: "DM Mono", monospace;
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -.02em;
       color: var(--accent);
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     .skill-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
       min-width: 0;
-    }
-
-    .skill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 42px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 14px;
-      color: #dfe2df;
-      background: rgba(255,255,255,.015);
-      transition: .3s ease;
-      font-family: "DM Mono", monospace;
-      font-size: 11px;
-      letter-spacing: .02em;
-      max-width: 100%;
-      white-space: normal;
+      color: var(--muted);
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
       overflow-wrap: anywhere;
-    }
-
-    .skill:hover {
-      background: rgba(217,255,84,.12);
-      border-color: rgba(217,255,84,.45);
-      color: var(--text);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 22px rgba(217,255,84,.08);
-    }
-
-    .skill-icon {
-      width: 16px;
-      height: 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .skill-icon img,
-    .skill-icon svg {
-      width: 16px;
-      height: 16px;
-      display: block;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-    }
-
-    .skill-tag {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 14px;
-      color: #dfe2df;
-      background: rgba(255,255,255,.015);
-      transition: .3s ease;
-      font-family: "DM Mono", monospace;
-      font-size: 11px;
-      letter-spacing: .02em;
-      max-width: 100%;
-      white-space: normal;
-      overflow-wrap: anywhere;
-    }
-
-    .skill-tag:hover {
-      background: rgba(217,255,84,.12);
-      border-color: rgba(217,255,84,.45);
-      color: var(--text);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 22px rgba(217,255,84,.08);
     }
 
     @media(max-width: 800px) {
       .skills-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .skill-category {
+        padding: 20px 18px;
+      }
+
+      .skill-stack {
+        font-size: 15px;
       }
     }
 
@@ -574,7 +513,7 @@
       overflow: hidden;
       border: 1px solid rgba(217,255,84,.35);
       box-shadow: 0 22px 60px rgba(0,0,0,.42), inset 0 0 0 1px rgba(255,255,255,.08);
-      background: linear-gradient(135deg, rgba(217,255,84,.12), rgba(255,255,255,.02));
+      background: #101010;
       isolation: isolate;
     }
 
@@ -741,22 +680,23 @@
     }
 
     .certifications-card {
-      background:
-        radial-gradient(circle at 90% 10%, rgba(217,255,84,.09), transparent 30%),
-        var(--card);
+      background: var(--card);
     }
 
     .certification-list {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
       gap: 12px;
+      align-items: stretch;
     }
 
     .certification-item {
       display: grid;
+      align-content: start;
       gap: 6px;
-      min-width: min(100%, 260px);
+      min-width: 0;
       max-width: 100%;
+      min-height: 100px;
       padding: 14px 18px;
       border: 1px solid var(--line);
       border-radius: 18px;
@@ -1168,98 +1108,33 @@
       <div class="skills-grid reveal">
 
         <div class="skill-category">
-          <div class="category-header">Data Analytics</div>
-          <div class="skill-stack">
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/powerbi.svg" alt="Power BI" /></span>Power BI</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/microsoftexcel.svg" alt="Excel" /></span>Excel</div>
-            <div class="skill-tag">EDA</div>
-            <div class="skill-tag">Data Cleaning</div>
-            <div class="skill-tag">Data Visualization</div>
-            <div class="skill-tag">Statistics</div>
-          </div>
+          <h3 class="category-header">Programming Languages</h3>
+          <p class="skill-stack">Python, Java, C, C++</p>
         </div>
 
         <div class="skill-category">
-          <div class="category-header">Programming & Libraries</div>
-          <div class="skill-stack">
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/python.svg" alt="Python" /></span>Python</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/openjdk.svg" alt="Java" /></span>Java</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/c.svg" alt="C" /></span>C</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/cplusplus.svg" alt="C++" /></span>C++</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/pandas.svg" alt="Pandas" /></span>Pandas</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/numpy.svg" alt="NumPy" /></span>NumPy</div>
-            <div class="skill-tag">Matplotlib</div>
-          </div>
+          <h3 class="category-header">Tools & Platforms</h3>
+          <p class="skill-stack">Git, GitHub, VS Code, Jupyter Notebook, Google Colab, Firebase, Vercel, Render</p>
         </div>
 
         <div class="skill-category">
-          <div class="category-header">Data Science & Machine Learning</div>
-          <div class="skill-stack">
-            <div class="skill-tag">Machine Learning</div>
-            <div class="skill-tag">Regression</div>
-            <div class="skill-tag">KNN</div>
-            <div class="skill-tag">Naive Bayes</div>
-            <div class="skill-tag">SVM</div>
-            <div class="skill-tag">PCA</div>
-            <div class="skill-tag">Classification</div>
-            <div class="skill-tag">Clustering</div>
-            <div class="skill-tag">K-Means</div>
-            <div class="skill-tag">K-Medoids</div>
-            <div class="skill-tag">Hierarchical Clustering</div>
-            <div class="skill-tag">DBSCAN</div>
-            <div class="skill-tag">Apriori</div>
-            <div class="skill-tag">Association Rule Mining</div>
-          </div>
+          <h3 class="category-header">Data Analytics & Visualization</h3>
+          <p class="skill-stack">Power BI, Microsoft Excel, Exploratory Data Analysis (EDA), Data Cleaning, Data Visualization, Statistics</p>
         </div>
 
         <div class="skill-category">
-          <div class="category-header">Database & Data Warehousing</div>
-          <div class="skill-stack">
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/mysql.svg" alt="MySQL" /></span>MySQL</div>
-            <div class="skill-tag">SQL</div>
-            <div class="skill-tag">DBMS</div>
-            <div class="skill-tag">ETL</div>
-            <div class="skill-tag">OLAP</div>
-            <div class="skill-tag">OLTP</div>
-            <div class="skill-tag">Data Preprocessing</div>
-          </div>
+          <h3 class="category-header">Libraries & Frameworks</h3>
+          <p class="skill-stack">Pandas, NumPy, Matplotlib</p>
         </div>
 
         <div class="skill-category">
-          <div class="category-header">Computer Networks</div>
-          <div class="skill-stack">
-            <div class="skill-tag">TCP/IP</div>
-            <div class="skill-tag">OSI Model</div>
-            <div class="skill-tag">Subnetting</div>
-            <div class="skill-tag">VLSM</div>
-            <div class="skill-tag">RIP</div>
-            <div class="skill-tag">OSPF</div>
-            <div class="skill-tag">BGP</div>
-            <div class="skill-tag">EIGRP</div>
-            <div class="skill-tag">NAT</div>
-            <div class="skill-tag">VLAN</div>
-            <div class="skill-tag">DNS</div>
-            <div class="skill-tag">DHCP</div>
-            <div class="skill-tag">SSH</div>
-            <div class="skill-tag">TCP</div>
-            <div class="skill-tag">UDP</div>
-            <div class="skill-tag">HTTP</div>
-            <div class="skill-tag">FTP</div>
-          </div>
+          <h3 class="category-header">Databases & Data Warehousing</h3>
+          <p class="skill-stack">MySQL, SQL, DBMS, ETL, OLAP, OLTP, Data Preprocessing</p>
         </div>
 
         <div class="skill-category">
-          <div class="category-header">Tools & Platforms</div>
-          <div class="skill-stack">
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/git.svg" alt="Git" /></span>Git</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" alt="GitHub" /></span>GitHub</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/visualstudiocode.svg" alt="VS Code" /></span>VS Code</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/jupyter.svg" alt="Jupyter Notebook" /></span>Jupyter Notebook</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/googlecolab.svg" alt="Google Colab" /></span>Google Colab</div>
-            <div class="skill-tag">Vercel</div>
-            <div class="skill-tag">Render</div>
-            <div class="skill"><span class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/firebase.svg" alt="Firebase" /></span>Firebase</div>
-          </div>
+          <h3 class="category-header">Core Competencies</h3>
+          <p class="skill-stack">Computer Networks, TCP/IP, Routing & Switching, Data Mining, Machine Learning, Regression, Classification, Clustering, PCA, KNN, Naive Bayes, SVM, Apriori, Association Rule Mining</p>
         </div>
 
       </div>
@@ -1569,10 +1444,18 @@
             <strong>Power BI Certificate</strong>
             <span>Udemy</span>
           </div>
-          <div class="skill">Python for Data Science</div>
-          <div class="skill">Microsoft Excel</div>
-          <div class="skill">Programming in Java</div>
-          <div class="skill">OOP Fundamentals</div>
+          <div class="certification-item">
+            <strong>Python for Data Science</strong>
+          </div>
+          <div class="certification-item">
+            <strong>Microsoft Excel</strong>
+          </div>
+          <div class="certification-item">
+            <strong>Programming in Java</strong>
+          </div>
+          <div class="certification-item">
+            <strong>OOP Fundamentals</strong>
+          </div>
         </div>
       </div>
 
